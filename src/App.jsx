@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import { useSearchParams } from "react-router-dom";
 
 function App() {
   const [customPostion, setCustomPosition] = useState({});
@@ -24,6 +25,11 @@ function App() {
       return "src/assets/please1.gif";
     }
   };
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const to = searchParams.get("to") 
+  const from = searchParams.get("from")
+
   return (
     <div className="App flex flex-col justify-center items-center m-6 gap-10">
       <div className="gif-container h-64">
@@ -45,7 +51,7 @@ function App() {
           ? "Yaayy !!! I LOVE YOU SO MUCH !!"
           : counter >= 15
           ? "Now I don't want you !!"
-          : "Will you be my Valentine ?"}
+          : `${to ? `${to}, w` : "W" }ill you be my Valentine ? ${from ? `~ ${from}` : "" }`}
       </h1>
       {!saidYes && counter < 15 ? (
         <div className="buttons flex gap-20 flex-col">
