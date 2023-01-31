@@ -16,13 +16,13 @@ function App() {
 
   const contentSetter = (counter) => {
     if (counter >= 15) {
-      return "src/assets/angryCat.gif";
+      return "/angryCat.gif";
     } else if (counter >= 10) {
-      return "src/assets/hurt3.gif";
+      return "hurt3.gif";
     } else if (counter >= 5) {
-      return "src/assets/please2.gif";
+      return "please2.gif";
     } else {
-      return "src/assets/please1.gif";
+      return "please1.gif";
     }
   };
 
@@ -34,14 +34,14 @@ function App() {
     <div className="App flex flex-col justify-center items-center m-6 gap-10">
       <div className="gif-container h-64">
         <img
-          src={saidYes ? "src/assets/thankyou.gif" : contentSetter(counter)}
+          src={saidYes ? "/thankyou.gif" : contentSetter(counter)}
           alt="gif"
           className="h-full"
         />
       </div>
       {saidYes && counter <= 15 && (
         <img
-          src="src/assets/heartExplosion.gif"
+          src="/heartExplosion.gif"
           alt="heart"
           className="-z-10 absolute top-28"
         />
